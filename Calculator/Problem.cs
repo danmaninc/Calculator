@@ -6,24 +6,33 @@ namespace Calculator
 {
     class Problem
     {
-        public int FirstElement { get; set; }
-        public int SecondElement { get; set; }
-        public string Action { get; set; }
+        private double FirstElement { get; }
+        private double SecondElement { get; }
+        private string Action { get; }
         public bool flag = false;
-        public Problem(int a, int b, string action)
+        public Problem(double a, double b, string action)
         {
             FirstElement = a;
             SecondElement = b;
             Action = action;
         }
 
-        public int Resolve()
+        public double Resolve()
         {
             switch (Action)
             {
                 case "+": return FirstElement + SecondElement;
                 case "-": return FirstElement - SecondElement;
-                case "/": return FirstElement / SecondElement;
+                case "/":
+                    {
+                        if (SecondElement != 0)
+                            return FirstElement / SecondElement;
+                        else
+                        {
+                            flag = true;
+                            return -1;
+                        }
+                    }
                 case "*": return FirstElement * SecondElement;
                 default:
                     {
