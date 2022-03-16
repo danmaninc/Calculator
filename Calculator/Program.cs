@@ -8,14 +8,24 @@ namespace Calculator
         {
             while (true) {
                 Console.WriteLine("Введите первое число.");
-                int a = Convert.ToInt32(Console.ReadLine());
+                string input1 = Console.ReadLine();
+                if (!double.TryParse(input1, out double a))
+                {
+                    Console.WriteLine("Неверный ввод.");
+                    continue;
+                }
                 Console.WriteLine("Введите второе число.");
-                int b = Convert.ToInt32(Console.ReadLine());
+                string input2 = Console.ReadLine();
+                if (!double.TryParse(input2, out double b))
+                {
+                    Console.WriteLine("Неверный ввод.");
+                    continue;
+                }
                 Console.WriteLine("Какое действие нужно выполнить? (+ - / *)");
                 string action = Console.ReadLine();
                 Problem expression = new Problem(a, b, action);
 
-                int answer = expression.Resolve();
+                double answer = expression.Resolve();
                 if (expression.flag)
                 {
                     Console.WriteLine("Неверный ввод.");
