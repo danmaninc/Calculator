@@ -27,7 +27,7 @@ namespace Calculator
                 }
                 Console.WriteLine("Какое действие нужно выполнить? (+ - / *)");
                 string action = Console.ReadLine();
-                Problem expression = new Problem(a, b, action);
+                Expression expression = new Expression(a, b, action);
 
                 double answer = expression.Resolve();
                 if (expression.flag)

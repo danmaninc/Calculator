@@ -4,13 +4,13 @@ using System.Text;
 
 namespace Calculator
 {
-    class Problem
+    class Expression
     {
         private double FirstElement { get; }
         private double SecondElement { get; }
         private string Action { get; }
         public bool flag = false;
-        public Problem(double a, double b, string action)
+        public Expression(double a, double b, string action)
         {
             FirstElement = a;
             SecondElement = b;
