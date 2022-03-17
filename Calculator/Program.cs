@@ -7,19 +7,23 @@ namespace Calculator
         static void Main(string[] args)
         {
             while (true) {
+                double a = 0;
+                double b = 0;
                 Console.WriteLine("Введите первое число.");
                 string input1 = Console.ReadLine();
-                if (!double.TryParse(input1, out double a))
+                while (!double.TryParse(input1, out a))
                 {
                     Console.WriteLine("Неверный ввод.");
-                    continue;
+                    Console.WriteLine("Введите первое число.");
+                    input1 = Console.ReadLine();
                 }
                 Console.WriteLine("Введите второе число.");
                 string input2 = Console.ReadLine();
-                if (!double.TryParse(input2, out double b))
+                while (!double.TryParse(input2, out b))
                 {
                     Console.WriteLine("Неверный ввод.");
-                    continue;
+                    Console.WriteLine("Введите второе число.");
+                    input2 = Console.ReadLine();
                 }
                 Console.WriteLine("Какое действие нужно выполнить? (+ - / *)");
                 string action = Console.ReadLine();
